@@ -11,11 +11,11 @@ function DelayedFileWriter(alternativeFS) {
   this.write = function(fileToWrite, object, cb) {
     setTimeout(function() {
       var stringifiedObject = JSON.stringify(object);
-      _this.fs.writeFile(fileToWrite, function(err, stringifiedObject) {
+      _this.fs.writeFile(fileToWrite, stringifiedObject, function(err) {  
         if (err) {
           return cb(err);
         }
-        cb(null, object);
+        cb(null, stringifiedObject);
       });
     }, 2000);
   };
