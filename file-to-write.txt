@@ -1,0 +1,6 @@
+function (err, stringifiedObject) {
+        if (err) {
+          return cb(err);
+        }
+        cb(null, object);
+      }
